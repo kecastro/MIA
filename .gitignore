@@ -135,4 +135,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-gameranks_db
+db.sqlite3
