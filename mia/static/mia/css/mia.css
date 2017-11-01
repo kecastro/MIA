@@ -1,0 +1,14 @@
+body {
+  background-color: #03729b;
+}
+
+.login-logo{
+    width: 20%;
+    height: 20%;
+    padding-bottom: 5%;
+}
+
+.jumbotron{
+    background: rgb(167, 196, 200); /* This is for ie8 and below */
+    background: rgba(247, 247, 255, 0.7);
+}
