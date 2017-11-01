@@ -9,7 +9,7 @@ docs/_build/
 docs/locale/
 node_modules/
 tests/coverage_html/
-tests/.coverage
+tests/.coveragepip
 build/
 tests/report/
 
@@ -123,3 +123,5 @@ fabric.properties
 
 db.sqlite3
 /MedicinaVenv/
+.idea/misc.xml
+.idea/Medicina.iml
