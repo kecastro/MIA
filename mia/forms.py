@@ -25,11 +25,19 @@ class QuestionsForm(forms.ModelForm):
         ('Otro', 'Otro'),
     )
 
+    TRUE_FALSE_CHOICES = (
+        (True, 'Si'),
+        (False, 'No')
+    )
+
     numberRooms = forms.IntegerField(label="Numero de cuartos", widget=forms.TextInput(attrs={'class': 'form-control'}), required=True)
     livesWith = forms.IntegerField(label="Vive con", widget=forms.TextInput(attrs={'class': 'form-control'}), required=True)
-    runningWater = forms.BooleanField(label="Agua potable", required=True)
-    electricity = forms.BooleanField(label="Electricidad", required=True)
-    pets = forms.BooleanField(label="Mascotas", required=True)
+    runningWater = forms.ChoiceField(label="Agua potable", choices=TRUE_FALSE_CHOICES,
+                                      widget=forms.Select(attrs={'class': 'selectpicker show-tick form-control'}))
+    electricity = forms.ChoiceField(label="Electricidad", choices=TRUE_FALSE_CHOICES,
+                                      widget=forms.Select(attrs={'class': 'selectpicker show-tick form-control'}))
+    pets = forms.ChoiceField(label="Mascotas", choices=TRUE_FALSE_CHOICES,
+                                      widget=forms.Select(attrs={'class': 'selectpicker show-tick form-control'}))
     petsExtra = forms.ChoiceField(label="Que mascota", choices=PETS,
                              widget=forms.Select(attrs={'class': 'selectpicker show-tick form-control'}), required=False)
 

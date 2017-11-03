@@ -11,7 +11,7 @@ class Patient(models.Model):
     map = models.CharField(max_length=50, null=True)
 
     def __str__(self):
-        return "Nombre: " + str(self.name) + " Edad: " + str(self.age)
+        return "Nombre: " + str(self.name) + ", Edad: " + str(self.age)
 
 
 class Questions(models.Model):
@@ -24,4 +24,4 @@ class Questions(models.Model):
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE, null=False)
 
     def __str__(self):
-        return "Preguntas paciente: " + str(self.patient.name) + " Documento: " + str(self.patient.documentId)
+        return "Preguntas paciente: " + str(self.patient.name) + ", Documento: " + str(self.patient.documentId)
