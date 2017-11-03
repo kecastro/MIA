@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
-    <div style="padding-top: 8%;" class="col-md-8 col-md-offset-2">
+    <div style="padding-top: 8%;" class="container col-md-8 col-md-offset-2">
         <div class="jumbotron col-md-10 col-md-offset-1">
             <form class="form-horizontal" method="post">
                 {% csrf_token %}
@@ -29,7 +29,7 @@
                         </div>
                         <label class="control-label">{{ formPatient.documentId.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
                             {{ formPatient.documentId }}
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         </div>
                         <label class="control-label">{{ formPatient.age.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
                             {{ formPatient.age }}
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                         </div>
                         <label class="control-label">{{ formPatient.address.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-home"></i></span>
                             {{ formPatient.address }}
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         </div>
                         <label class="control-label">{{ formPatient.photo.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
                             {{ formPatient.photo }}
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                         </div>
                         <label class="control-label">{{ formPatient.map.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                             {{ formPatient.map }}
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         </div>
                         <label class="control-label">{{ formQuestions.numberRooms.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-home"></i></span>
                             {{ formQuestions.numberRooms }}
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                         </div>
                         <label class="control-label">{{ formQuestions.livesWith.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-users"></i></span>
                             {{ formQuestions.livesWith }}
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                         </div>
                         <label class="control-label">{{ formQuestions.runningWater.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-tint"></i></span>
                             {{ formQuestions.runningWater }}
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                         </div>
                         <label class="control-label">{{ formQuestions.electricity.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-lightbulb-o"></i></span>
                             {{ formQuestions.electricity}}
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                         </div>
                         <label class="control-label">{{ formQuestions.pets.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-paw"></i></span>
                             {{ formQuestions.pets }}
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                         </div>
                         <label class="control-label">{{ formQuestions.petsExtra.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-paw"></i></span>
                             {{ formQuestions.petsExtra }}
                         </div>
                     </div>
