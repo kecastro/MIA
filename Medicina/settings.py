@@ -39,7 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mia',
+    'geoposition',
 ]
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyBg-ndmgNF1x9fev2djBFR5bR38uI_cEkM'
+
+GEOPOSITION_MAP_OPTIONS = {
+    'minZoom': 12,
+    'maxZoom': 18,
+}
+
+GEOPOSITION_MARKER_OPTIONS = {
+    'cursor': 'move'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,4 +1,6 @@
 from django.db import models
+from geoposition.fields import GeopositionField
+from geoposition import Geoposition
 
 # Create your models here.
 
@@ -8,7 +10,8 @@ class Patient(models.Model):
     age = models.IntegerField(null=False)
     photo = models.CharField(max_length=200, null=True)
     address = models.CharField(max_length=200, null=False)
-    map = models.CharField(max_length=50, null=True)
+    #map = models.CharField(max_length=50, null=True)
+    map = GeopositionField(default="5.538609,-73.361906")
 
     def __str__(self):
         return "Nombre: " + str(self.name) + ", Edad: " + str(self.age)

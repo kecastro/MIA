@@ -5,6 +5,9 @@
 {% block head %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="{% static "mia/css/geoposition.css" %}">
+    <script src="{% static "mia/js/geoposition.js" %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
 {% endblock %}
 
 {% block body %}
@@ -67,12 +70,12 @@
                     </div>
                     <div class="form-group" style="text-align: center">
                         <div>
-                            <span class="text-danger small">{{ formPatient.map.errors.as_text }}</span>
+                            <span class="text-danger small">{{ formQuestions.livesWith.errors.as_text }}</span>
                         </div>
-                        <label class="control-label">{{ formPatient.map.label }}</label>
+                        <label class="control-label">{{ formQuestions.livesWith.label }}</label>
                         <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                            {{ formPatient.map }}
+                            <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                            {{ formQuestions.livesWith }}
                         </div>
                     </div>
                     <div class="form-group" style="text-align: center">
@@ -85,16 +88,7 @@
                             {{ formQuestions.numberRooms }}
                         </div>
                     </div>
-                    <div class="form-group" style="text-align: center">
-                        <div>
-                            <span class="text-danger small">{{ formQuestions.livesWith.errors.as_text }}</span>
-                        </div>
-                        <label class="control-label">{{ formQuestions.livesWith.label }}</label>
-                        <div class="input-group col-md-8 col-md-offset-2">
-                            <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                            {{ formQuestions.livesWith }}
-                        </div>
-                    </div>
+
                 </div>
                 <div class="col-md-4"> <!-- Third column -->
                     <div class="form-group" style="text-align: center">
@@ -138,7 +132,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12">
+                    <h4 style="text-align: center; padding-top: 5%; padding-bottom: 2%;">Ubicacion Hogar</h4>
+                    {{ formPatient.map }}
+                </div>
+                <div style="padding-top: 5%;" class="col-md-8 col-md-offset-2">
                     <button class="btn btn-success center-block" type="submit">Registrarse</button>
                 </div>
             </form>
@@ -146,3 +144,7 @@
     </div>
 
 {% endblock %}
+
+{% block footer %}
+    <script src="{% static "mia/js/mia.js" %}"></script>
+{% endblock  %}

@@ -1,6 +1,7 @@
 from django import forms
 from .models import *
 from django.core.validators import RegexValidator
+from geoposition import Geoposition
 
 class PatientForm(forms.ModelForm):
 
@@ -9,7 +10,8 @@ class PatientForm(forms.ModelForm):
     age = forms.IntegerField(label="Edad", max_value=200, widget=forms.TextInput(attrs={'class': 'form-control'}), required=True)
     photo = forms.CharField(label="Foto", max_length=200, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'opcional'}), required=False)
     address = forms.CharField(label="Direccion", max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}), required=True)
-    map = forms.CharField(label="Ubicacion mapa", max_length=50, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'opcional'}), required=False)
+    #map = forms.CharField(label="Ubicacion mapa", max_length=50, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'opcional'}), required=False)
+
 
     class Meta:
         model = Patient

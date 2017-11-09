@@ -125,3 +125,5 @@ db.sqlite3
 /MedicinaVenv/
 .idea/misc.xml
 .idea/Medicina.iml
+/Medicina/staticfiles/
+/mia/migrations/
