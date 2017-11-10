@@ -15,7 +15,40 @@
         {% block head %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% if user.is_authenticated %}
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul id="sidebar_menu" class="sidebar-nav">
+                    <li class="sidebar-brand"><a id="menu-toggle" href="">MIA<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+                </ul>
+                <ul class="sidebar-nav" id="sidebar">
+                    <li><a href="{% url "mia:index" %}">Inicio<span class="sub_icon glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="{% url "mia:registerPatient" %}">Agregar<span class="sub_icon glyphicon glyphicon-user"></span></a></li>
+                </ul>
+            </div>
+
+            <!-- Page content -->
+            <div id="page-content-wrapper">
+                <!-- Keep all page content within the page-content inset div! -->
+                <div class="page-content inset">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        {% else %}
+            {% block login %}
+                <div style="padding-top: 10%;" class="container">
+                    <div class="jumbotron col-md-4 col-md-offset-4">
+                        <a href="{% url "mia:login" %}">
+                        <h4 style="padding-top: 10%; text-align: center;">Iniciar sesion</h4>
+                        </a>
+                    </div>
+                </div>
+            {% endblock %}
+        {% endif %}
+        <script src="{% static "mia/js/mia.js" %}"></script>
         {% block footer %}{% endblock %}
     </body>
 </html>

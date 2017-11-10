@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
+
 from .forms import *
 
 
@@ -36,6 +39,8 @@ def home(request):
 
 def registerPatient(request):
 
+    context = {}
+
     formPatient = PatientForm(request.POST or None, prefix='patient')
     formQuestions = QuestionsForm(request.POST or None, prefix='questions')
 
@@ -49,10 +54,28 @@ def registerPatient(request):
             questions = formQuestions.save(commit=False)
             questions.patient = patient
             questions.save()
+            context["message"] = "Persona: " + patient.name + " agregada con exito"
 
-    context = {
-        "formPatient": formPatient,
-        "formQuestions": formQuestions,
-    }
+    context["formPatient"] = formPatient
+    context["formQuestions"] = formQuestions
 
     return render(request, 'mia/registerPatient.html', context)
+
+def editPatient(request, pk):
+
+    context = {}
+    p = get_object_or_404(Patient, pk=pk)
+
+    formPatient = PatientForm(request.POST or None, prefix='patient', instance=p)
+    formQuestions = QuestionsForm(request.POST or None, prefix='questions')
+
+    if formPatient.is_valid():
+        p = formPatient.save(commit=False)
+        p.save()
+        return HttpResponseRedirect(reverse('mia:editPatient', kwargs={'pk': p.id}))
+
+    context["patient"] = p
+    context["formPatient"] = formPatient
+    context["formQuestions"] = formQuestions
+
+    return render(request, 'mia/patient.html', context)
