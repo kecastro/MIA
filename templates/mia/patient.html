@@ -13,6 +13,11 @@
 {% block body %}
     <div style="padding-top: 5%;" class="container col-md-8 col-md-offset-2">
         <div class="jumbotron col-md-12">
+            {% if message %}
+                <div style="text-align: center; padding-bottom: 10px;" class=" col-md-8 col-md-offset-2">
+                    <div class='col-md-6 col-md-offset-3 alert alert-success'>{{ message }}</div>
+                </div>
+            {% endif %}
             <form class="form-horizontal" method="post">
                 {% csrf_token %}
                 <fieldset id="form-fieldset" disabled>
@@ -79,6 +84,9 @@
                     </div>
                 </div>
                 </fieldset>
+                <div style="padding-top: 5%;" id="hidden-button" class="col-md-8 col-md-offset-2" hidden>
+                    <button id="submit-button-guardar" class="btn btn-success center-block" type="submit">Guardar Cambios</button>
+                </div>
             </form>
             <div style="padding-top: 5%;" class="col-md-8 col-md-offset-2">
                 <button id="submit-button-edit" class="btn btn-success center-block" type="button">Editar</button>
