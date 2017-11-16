@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
+
+import json
 
 from .forms import *
 
@@ -79,3 +81,12 @@ def editPatient(request, pk):
     context["formQuestions"] = formQuestions
 
     return render(request, 'mia/patient.html', context)
+
+
+def getAllPatients(request, query):
+
+    if request.user.is_authenticated():
+        patients = json.dumps([p.get_json() for p in Patient.objects.filter(name__icontains=query)])
+        return HttpResponse(patients)
+    else:
+        return HttpResponse("Error 404")

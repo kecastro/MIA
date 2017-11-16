@@ -13,6 +13,12 @@ class Patient(models.Model):
     #map = models.CharField(max_length=50, null=True)
     map = GeopositionField(default="5.538609,-73.361906")
 
+    def get_json(self):
+        return {
+            "id": self.id,
+            "name": self.name
+        }
+
     def __str__(self):
         return "Nombre: " + str(self.name) + ", Edad: " + str(self.age)
 
