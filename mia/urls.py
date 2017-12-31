@@ -7,7 +7,7 @@ urlpatterns = [
     url(r"^$", views.signin, name="login"),
     url(r"^home/$", views.home, name="index"),
     url(r"^agregarpersona/$", views.registerPatient, name="registerPatient"),
-    url(r'^getallpatients/(?P<query>[\w\-]+)$', views.getAllPatients , name='patientsSearch'),
-    url(r'^persona/$', views.editPatient, name='editPatient'),
+    url(r'^getallpatients/(?P<query>[\w\-]+)$', views.getAllPatients, name='patientsSearch'),
+    url(r'^persona/(?P<pk>[0-9]+)$', views.editPatient, name='editPatient'),
 
 ]

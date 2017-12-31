@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mia',
-    'geoposition',
+    'geoposition', #Django 1.10.8
 ]
 
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyBg-ndmgNF1x9fev2djBFR5bR38uI_cEkM'

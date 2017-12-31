@@ -22,9 +22,7 @@
             <table class="table table-striped">
                 <tbody ng-repeat="p in searchResult">
                 <tr>
-                {% verbatim %}
-                    <td>{{ p.name }}</td>
-                {% endverbatim %}
+                    {% verbatim %}<td><a href="/persona/{{ p.id }}">{{ p.name }}</a></td>{% endverbatim %}
                 </tr>
                 </tbody>
             </table>
